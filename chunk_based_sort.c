@@ -36,16 +36,17 @@ void bring_to_top(t_node **a, int pos)
 
 /*stackte ayrım yaptığımız her bir chunkı bye taşır*/
 /*bde düzenlenmiş nodeları tekrar aya gönderir*/
-void chunk_sort(t_node **a, t_node **b)
+/*range bizim için kontrol edilecek index aralığı olacak*/
+void chunk_sort(t_node **a, t_node **b, int range)
 {
-	push_chunks_to_b(a, b);
+	push_chunks_to_b(a, b,range);
 	push_back_to_a(a, b);
 }
 
-void push_chunks_to_b(t_node **a, t_node **b)
+void push_chunks_to_b(t_node **a, t_node **b, int range)
 {
 	int i = 0;
-	int max = 20;
+	int max = range;
 	int pos;
 
 	while (*a)
@@ -54,8 +55,8 @@ void push_chunks_to_b(t_node **a, t_node **b)
 
 		if (pos == -1)
 		{
-			i += 20;
-			max += 20;
+			i += range;
+			max += range;
 		}
 		else
 		{

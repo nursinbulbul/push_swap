@@ -12,7 +12,7 @@ t_node *new_node(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;  /*node içine sayı koyuyoruz*/
-	node->index = 1; /*node indexi için bi başlangıç değeri vermemiz gerekiyor, henüz hesaplanmadığını belirtir*/
+	node->index = -1; /*node indexi için bi başlangıç değeri vermemiz gerekiyor, henüz hesaplanmadığını belirtir*/
 	node->next = NULL;
 	node->prev = NULL; /*node henüz zincire bağlı değil*/
 	return (node); /*oluşturulan nodeu geri verir*/
