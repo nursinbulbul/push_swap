@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void print_stack(t_node *a)
+/*void print_stack(t_node *a)
 {
 	while (a)
 	{
@@ -40,3 +40,4 @@ int main(int argc, char **argv)
 
 	return (0);
 }
+	*/

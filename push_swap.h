@@ -60,8 +60,12 @@ void	free_stack(t_node **a);
 
 /* SORTING ALGORITHMS */
 void	insertion_sort(t_node **a, t_node **b);
-void chunk_sort(t_node **a, t_node **b);
-void push_chunks_to_b(t_node **a, t_node **b);
+void chunk_sort(t_node **a, t_node **b, int range);
+void push_chunks_to_b(t_node **a, t_node **b, int range);
 void push_back_to_a(t_node **a, t_node **b);
+int		get_bit(int index, int i);
+int		get_max_bits(t_node *a);
+void	process_bit(t_node **a, t_node **b, int size, int bit_index);
+void	radix_sort(t_node **a, t_node **b);
 
 #endif
