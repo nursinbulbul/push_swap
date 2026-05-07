@@ -37,3 +37,15 @@ void	exec_rrb(t_node **b)
 	rrb(b);
 	write(1, "rrb\n", 4);
 }
+
+void exec_pa(t_node **a, t_node **b)
+{
+    pa(a, b);
+    write(1, "pa\n", 3);
+}
+
+void exec_pb(t_node **a, t_node **b)
+{
+    pb(a, b);
+    write(1, "pb\n", 3);
+}
