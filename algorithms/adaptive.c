@@ -2,7 +2,7 @@
 
 #include "push_swap.h"
 
-void	adaptive_sort_process(t_node **a, t_node **b)
+void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench)
 {
 	double	disorder;
 	int		number;
@@ -12,28 +12,14 @@ void	adaptive_sort_process(t_node **a, t_node **b)
 	number = stack_size(*a);
 	disorder = measure_disorder_process(*a);
 	if (disorder < 0.2)
-		insertion_sort(a, b);
+		insertion_sort(a, b, bench);
 	else if (disorder < 0.5)
-		chunk_based_sort(a, b, find_root(number));
+		chunk_sort(a, b, find_root(number), bench);
 	else
-		radix_sort(a, b);
+		radix_sort(a, b, bench);
 }
 
-int	find_root(int total_len)
-{
-	int	root;
 
-	if (total_len <= 0)
-		return (0);
-	root = 1;
-	while (root * root <= total_len)
-	{
-		if (root * root == total_len)
-			return (root);
-		root++;
-	}
-	return (root - 1);
-}
 
 static int	count_inversions(t_node *stack)
 {

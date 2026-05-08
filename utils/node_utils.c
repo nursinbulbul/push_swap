@@ -77,3 +77,30 @@ int find_max_index_position(t_node *b)
 	}
 	return (max_pos);
 }
+
+/*nodeların hepsini gezip minimum değerin bulunduğu nodeu bulur*/
+
+int	get_min_index(t_node *a)
+{
+	int	min;
+	int	index;
+	int	i;
+
+	if (!a)
+		return (0);
+
+	min = a->value;
+	index = 0;
+	i = 0;
+	while (a)
+	{
+		if (a->value < min)
+		{
+			min = a->value;
+			index = i;
+		}
+		a = a->next;
+		i++;
+	}
+	return (index);
+}

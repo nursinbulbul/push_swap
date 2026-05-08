@@ -1,36 +1,11 @@
 #include "push_swap.h"
 
 
-/*nodeların hepsini gezip minimum değerin bulunduğu nodeu bulur*/
 
-int	get_min_index(t_node *a)
-{
-	int	min;
-	int	index;
-	int	i;
-
-	if (!a)
-		return (0);
-
-	min = a->value;
-	index = 0;
-	i = 0;
-	while (a)
-	{
-		if (a->value < min)
-		{
-			min = a->value;
-			index = i;
-		}
-		a = a->next;
-		i++;
-	}
-	return (index);
-}
 
 /*min değeri olan nodeu en başa alır*/
 
-void	move_min_to_top(t_node **a)
+void	move_min_to_top(t_node **a, t_bench *bench)
 {
 	int	min_index;
 	int	size;
@@ -44,7 +19,7 @@ void	move_min_to_top(t_node **a)
 	{
 		while (min_index > 0)
 		{
-			exec_ra(a); /*yazdırabilmek için exec kullandık*/
+			exec_ra(a, bench); /*yazdırabilmek için exec kullandık*/
 			min_index--;
 		}
 	}
@@ -54,13 +29,13 @@ void	move_min_to_top(t_node **a)
 		moves = size - min_index; /*reverse rotate işleminin kaç defa tekrarlanacağını hesaplar*/
 		while (moves > 0)
 		{
-			exec_rra(a);
+			exec_rra(a, bench);
 			moves--;
 		}
 	}
 }
 
-void	insertion_sort(t_node **a, t_node **b)
+void	insertion_sort(t_node **a, t_node **b, t_bench *bench)
 {
 	int	size;
 	int	i;
@@ -73,7 +48,7 @@ void	insertion_sort(t_node **a, t_node **b)
     /*bu döngüde a stackte min değeri bulup her seferinde b'ye aktarıyor*/
 	while (i < size)
 	{
-		move_min_to_top(a);
+		move_min_to_top(a, bench);
 		pb(a, b);
 		i++;
 	}

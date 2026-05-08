@@ -33,7 +33,7 @@ int	get_bit(int index, int i)
 }
 
 /*bite göre elemanları ayırıp adan bye dağıtma yapar*/
-void	process_bit(t_node **a, t_node **b, int size, int bit_index)
+void	process_bit(t_node **a, t_node **b, int size, int bit_index, t_bench *bench)
 {
 	int	j;
 
@@ -41,7 +41,7 @@ void	process_bit(t_node **a, t_node **b, int size, int bit_index)
 	while (j < size)
 	{
 		if (get_bit((*a)->index, bit_index) == 1)
-			exec_ra(a);
+			exec_ra(a, bench);
 		else
 			pb(a, b);
 		j++;
@@ -50,7 +50,7 @@ void	process_bit(t_node **a, t_node **b, int size, int bit_index)
 		pa(a, b);
 }
 
-void	radix_sort(t_node **a, t_node **b)
+void	radix_sort(t_node **a, t_node **b, t_bench *bench)
 {
 	int	max_bits;
 	int	i;
@@ -63,7 +63,7 @@ void	radix_sort(t_node **a, t_node **b)
 	i = 0;
 	while (i < max_bits) /*en büyük index biti kadar çalışacak*/
 	{
-		process_bit(a, b, size, i);
+		process_bit(a, b, size, i, bench);
 		i++;
 	}
 }

@@ -17,33 +17,50 @@ int find_index_in_range(t_node *a, int min, int max)
 }
 
 /*nodeları indexe göre sıralama*/
-void bring_to_top(t_node **a, int pos)
+static void bring_to_top_a(t_node **a, int pos, t_bench *bench)
 {
 	int size = stack_size(*a);
 
 	if (pos <= size / 2)
 	{
 		while (pos--)
-			ra(a);
+			exec_ra(a, bench);
 	}
 	else
 	{
 		pos = size - pos;
 		while (pos--)
-			rra(a);
+			exec_rra(a, bench);
+	}
+}
+
+static void bring_to_top_b(t_node **b, int pos, t_bench *bench)
+{
+	int size = stack_size(*b);
+
+	if (pos <= size / 2)
+	{
+		while (pos--)
+			exec_rb(b, bench);
+	}
+	else
+	{
+		pos = size - pos;
+		while (pos--)
+			exec_rrb(b, bench);
 	}
 }
 
 /*stackte ayrım yaptığımız her bir chunkı bye taşır*/
 /*bde düzenlenmiş nodeları tekrar aya gönderir*/
 /*range bizim için kontrol edilecek index aralığı olacak*/
-void chunk_sort(t_node **a, t_node **b, int range)
+void chunk_sort(t_node **a, t_node **b, int range, t_bench *bench)
 {
-	push_chunks_to_b(a, b,range);
-	push_back_to_a(a, b);
+	push_chunks_to_b(a, b,range, bench);
+	push_back_to_a(a, b, bench);
 }
 
-void push_chunks_to_b(t_node **a, t_node **b, int range)
+void push_chunks_to_b(t_node **a, t_node **b, int range, t_bench *bench)
 {
 	int i = 0;
 	int max = range;
@@ -60,21 +77,21 @@ void push_chunks_to_b(t_node **a, t_node **b, int range)
 		}
 		else
 		{
-			bring_to_top(a, pos);
+			bring_to_top_a(a, pos, bench);
 			pb(a, b);
 		}
 	}
 }
 
 /*bdeki düzenlenmiş stacki aya aktarma*/
-void push_back_to_a(t_node **a, t_node **b)
+void push_back_to_a(t_node **a, t_node **b, t_bench *bench)
 {
 	int max_pos;
 
 	while (*b)
 	{
 		max_pos = find_max_index_position(*b);
-		bring_to_top(b, max_pos);
+		bring_to_top_b(b, max_pos, bench);
 		pa(a, b);
 	}
 }

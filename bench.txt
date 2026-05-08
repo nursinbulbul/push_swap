@@ -1,0 +1,5 @@
+[bench] total_ops: 3
+[bench] sa: 0 sb: 0 ss: 0
+[bench] pa: 0 pb: 0
+[bench] ra: 2 rb: 1 rr: 0
+[bench] rra: 0 rrb: 0 rrr: 0

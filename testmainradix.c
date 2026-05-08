@@ -1,4 +1,4 @@
-#include "push_swap.h"
+/*#include "push_swap.h"
 #include <stdio.h>
 
 void	print_stack_debug(t_node *stack, char name)
@@ -45,4 +45,4 @@ int	main(int argc, char **argv)
 	free_stack(&b);
 
 	return (0);
-}
+}*/
