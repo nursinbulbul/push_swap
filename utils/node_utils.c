@@ -2,19 +2,15 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   node_utils.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2026/05/09 15:30:56 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:30:56 by nbulbul          ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aykale <aykale@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/09 15:52:57 by aykale            #+#    #+#             */
+/*   Updated: 2026/05/09 15:52:57 by aykale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 t_node	*new_node(int value)
 {

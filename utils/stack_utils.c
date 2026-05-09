@@ -2,19 +2,15 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2026/05/09 15:32:36 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:32:36 by nbulbul          ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aykale <aykale@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/09 15:53:05 by aykale            #+#    #+#             */
+/*   Updated: 2026/05/09 15:53:05 by aykale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	add_back(t_node **stack, t_node *new)
 {
