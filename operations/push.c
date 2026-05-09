@@ -2,19 +2,15 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2026/05/09 15:27:17 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:27:17 by nbulbul          ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aykale <aykale@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/09 15:48:59 by aykale            #+#    #+#             */
+/*   Updated: 2026/05/09 15:48:59 by aykale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	pb(t_node **a, t_node **b)
 {

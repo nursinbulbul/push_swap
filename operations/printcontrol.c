@@ -2,19 +2,15 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   printcontrol.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2026/05/09 15:26:32 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:26:32 by nbulbul          ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aykale <aykale@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/09 15:48:48 by aykale            #+#    #+#             */
+/*   Updated: 2026/05/09 15:48:48 by aykale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	exec_sa(t_node **a, t_bench *bench)
 {

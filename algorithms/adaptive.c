@@ -2,19 +2,15 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   adaptive.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2026/05/09 15:22:51 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:22:51 by nbulbul          ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aykale <aykale@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/09 15:48:31 by aykale            #+#    #+#             */
+/*   Updated: 2026/05/09 15:48:31 by aykale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench)
 {
