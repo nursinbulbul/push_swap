@@ -14,7 +14,7 @@
 
 t_node	*new_node(int value)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
@@ -28,25 +28,23 @@ t_node	*new_node(int value)
 
 void	assign_index(t_node *stack)
 {
-	t_node *i;
-	t_node *j;
+	t_node	*i;
+	t_node	*j;
+	int		rank;
 
 	if (!stack)
 		return ;
-
 	i = stack;
 	while (i)
 	{
-		int rank = 0;
+		rank = 0;
 		j = stack;
-
 		while (j)
 		{
 			if (j->value < i->value)
 				rank++;
 			j = j->next;
 		}
-
 		i->index = rank;
 		i = i->next;
 	}
@@ -54,17 +52,15 @@ void	assign_index(t_node *stack)
 
 int	find_max_index_position(t_node *b)
 {
-	int max;
-	int pos;
-	int max_pos;
+	int	max;
+	int	pos;
+	int	max_pos;
 
 	if (!b)
 		return (-1);
-
 	max = b->index;
 	pos = 0;
 	max_pos = 0;
-
 	while (b)
 	{
 		if (b->index > max)
@@ -80,13 +76,12 @@ int	find_max_index_position(t_node *b)
 
 int	get_min_index(t_node *a)
 {
-	int min;
-	int index;
-	int i;
+	int	min;
+	int	index;
+	int	i;
 
 	if (!a)
 		return (0);
-
 	min = a->value;
 	index = 0;
 	i = 0;

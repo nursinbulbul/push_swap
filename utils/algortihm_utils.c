@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algortihm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: aykale <aykale@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 15:30:14 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:38:46 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/09 16:08:09 by aykale           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_sorted(t_node *stack)
 
 int	find_root(int total_len)
 {
-	int root;
+	int	root;
 
 	if (total_len <= 0)
 		return (0);

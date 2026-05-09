@@ -14,11 +14,11 @@
 
 int	has_duplicate(t_node *a)
 {
-	t_node *tmp;
-	t_node *check;
+	t_node	*tmp;
+	t_node	*check;
+
 	if (!a)
 		return (0);
-
 	tmp = a;
 	while (tmp)
 	{
@@ -42,8 +42,8 @@ static void	handle_error(t_node **stack)
 
 static int	get_next_number(char **str, t_node **stack)
 {
-	long result;
-	int sign;
+	long	result;
+	int		sign;
 
 	result = 0;
 	sign = 1;
@@ -67,8 +67,8 @@ static int	get_next_number(char **str, t_node **stack)
 
 static void	parse_string_to_stack(t_node **stack, char *str)
 {
-	int value;
-	t_node *node;
+	int		value;
+	t_node	*node;
 
 	while (*str)
 	{
@@ -86,8 +86,8 @@ static void	parse_string_to_stack(t_node **stack, char *str)
 
 t_node	*create_stack(int argc, char **argv)
 {
-	t_node *stack;
-	int i;
+	t_node	*stack;
+	int		i;
 
 	stack = NULL;
 	i = 1;

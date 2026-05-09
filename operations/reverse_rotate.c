@@ -14,51 +14,39 @@
 
 void	rra(t_node **a)
 {
-	t_node *last;
-	t_node *second_last;
+	t_node	*last;
+	t_node	*second_last;
 
 	if (!a || !*a || !(*a)->next)
 		return ;
-
 	last = *a;
 	while (last->next)
 		last = last->next;
-
 	second_last = last->prev;
-
 	if (second_last)
 		second_last->next = NULL;
-
 	last->next = *a;
 	(*a)->prev = last;
-
 	last->prev = NULL;
-
 	*a = last;
 }
 
 void	rrb(t_node **b)
 {
-	t_node *last;
-	t_node *second_last;
+	t_node	*last;
+	t_node	*second_last;
 
 	if (!b || !*b || !(*b)->next)
 		return ;
-
 	last = *b;
 	while (last->next)
 		last = last->next;
-
 	second_last = last->prev;
-
 	if (second_last)
 		second_last->next = NULL;
-
 	last->next = *b;
 	(*b)->prev = last;
-
 	last->prev = NULL;
-
 	*b = last;
 }
 

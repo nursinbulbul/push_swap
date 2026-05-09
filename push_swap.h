@@ -10,56 +10,56 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef push_swap
-# define push_swap
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>
 
 typedef struct s_node
 {
-	int value;
-	int index;
-	struct s_node *next;
-	struct s_node *prev;
-} t_node;
+	int				value;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
 
 typedef struct s_bench
 {
-	int sa;
-	int sb;
-	int ss;
+	int	sa;
+	int	sb;
+	int	ss;
 
-	int pa;
-	int pb;
+	int	pa;
+	int	pb;
 
-	int ra;
-	int rb;
-	int rr;
+	int	ra;
+	int	rb;
+	int	rr;
 
-	int rra;
-	int rrb;
-	int rrr;
+	int	rra;
+	int	rrb;
+	int	rrr;
 
-	int total_ops;
+	int	total_ops;
 
-	int disorder_percent;
+	int	disorder_percent;
 
-	char *algorithm;
-	char *big_o;
-} t_bench;
+	char	*algorithm;
+	char	*big_o;
+}	t_bench;
 
 void	print_bench(t_bench *b);
 void	init_bench(t_bench *bench);
 t_node	*create_stack(int argc, char **argv);
-int	ft_atoi_safe(char *str);
-int	has_duplicate(t_node *a);
+int		ft_atoi_safe(char *str);
+int		has_duplicate(t_node *a);
 void	error_exit(void);
 t_node	*new_node(int value);
 void	assign_index(t_node *stack);
-int	find_max_index_position(t_node *b);
+int		find_max_index_position(t_node *b);
 void	add_back(t_node **stack, t_node *new);
-int	stack_size(t_node *a);
+int		stack_size(t_node *a);
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **a, t_node **b);
 void	sa(t_node **a);
@@ -84,15 +84,13 @@ void	insertion_sort(t_node **a, t_node **b, t_bench *bench);
 void	chunk_sort(t_node **a, t_node **b, int range, t_bench *bench);
 void	push_chunks_to_b(t_node **a, t_node **b, int range, t_bench *bench);
 void	push_back_to_a(t_node **a, t_node **b, t_bench *bench);
-int	get_bit(int index, int i);
-int	get_max_bits(t_node *a);
-void	process_bit(t_node **a, t_node **b, int size, int bit_index,
-		t_bench *bench);
+int		get_bit(int index, int i);
+int		get_max_bits(t_node *a);
+void	process_bit(t_node **a, t_node **b, int size, int bit_index, t_bench *bench);
 void	radix_sort(t_node **a, t_node **b, t_bench *bench);
-int	find_root(int total_len);
+int		find_root(int total_len);
 void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench);
 double	measure_disorder_process(t_node *stack);
-int	is_sorted(t_node *stack);
-int	get_min_index(t_node *a);
-
+int		is_sorted(t_node *stack);
+int		get_min_index(t_node *a);
 #endif

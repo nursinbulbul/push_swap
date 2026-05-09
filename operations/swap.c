@@ -14,46 +14,37 @@
 
 void	sa(t_node **a)
 {
-	t_node *first;
-	t_node *second;
+	t_node	*first;
+	t_node	*second;
 
 	if (!a || !*a || !(*a)->next)
 		return ;
-
 	first = *a;
 	second = first->next;
-
 	first->next = second->next;
-
 	if (second->next)
 		second->next->prev = first;
-
 	second->next = first;
 	first->prev = second;
 	second->prev = NULL;
-
 	*a = second;
 }
 
 void	sb(t_node **b)
 {
-	t_node *first;
-	t_node *second;
+	t_node	*first;
+	t_node	*second;
 
 	if (!b || !*b || !(*b)->next)
 		return ;
-
 	first = *b;
 	second = first->next;
-
 	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
-
 	second->next = first;
 	first->prev = second;
 	second->prev = NULL;
-
 	*b = second;
 }
 
