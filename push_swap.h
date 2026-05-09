@@ -105,4 +105,8 @@ void	putstr(char *s);
 void	run_algorithm(t_node **a, t_node **b, t_bench *bench, int flag_mode);
 int		setup(t_ctx *c);
 void	cleanup(t_node *a, t_node *b, t_bench *bench, char **argv);
+void	sort_five(t_node **a, t_node **b, t_bench *bench);
+void	sort_three(t_node **a, t_bench *bench);
+void	sort_two(t_node **a, t_bench *bench);
+void	move_min_to_top(t_node **a, t_bench *bench);
 #endif

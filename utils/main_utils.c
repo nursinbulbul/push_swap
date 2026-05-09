@@ -6,7 +6,7 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 18:26:18 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 18:29:22 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/09 19:28:44 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,39 +37,12 @@ static int	parse_flags(int argc, char **argv, int *start_idx)
 		else if (!ft_strcmp(argv[*start_idx], "--complex"))
 			flag_mode = 3;
 		else if (!ft_strcmp(argv[*start_idx], "--bench"))
-			flag_mode = 3;
-		else if (ft_strcmp(argv[*start_idx], "--adaptive"))
-			return (-1);
+			flag_mode = 0;
+		else if (ft_strcmp(argv[*start_idx], "--adaptive") == 0)
+			flag_mode = 0;
 		(*start_idx)++;
 	}
 	return (flag_mode);
-}
-
-void	run_algorithm(t_node **a, t_node **b, t_bench *bench, int flag_mode)
-{
-	if (flag_mode == 1)
-	{
-		bench->algorithm = "Insertion";
-		bench->big_o = "O(n^2)";
-		insertion_sort(a, b, bench);
-	}
-	else if (flag_mode == 2)
-	{
-		bench->algorithm = "Chunk";
-		bench->big_o = "O(n√n)";
-		chunk_sort(a, b, find_root(stack_size(*a)), bench);
-	}
-	else if (flag_mode == 3)
-	{
-		bench->algorithm = "Radix";
-		bench->big_o = "O(n*k)";
-		radix_sort(a, b, bench);
-	}
-	else
-	{
-		bench->algorithm = "Adaptive";
-		adaptive_sort_process(a, b, bench);
-	}
 }
 
 int	setup(t_ctx *c)
