@@ -6,7 +6,7 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 15:23:40 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:38:24 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/09 16:49:41 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,6 @@ int	find_index_in_range(t_node *a, int min, int max)
 		a = a->next;
 	}
 	return (-1);
-}
-
-static void	bring_to_top_a(t_node **a, int pos, t_bench *bench)
-{
-	int	size;
-
-	size = stack_size(*a);
-	if (pos <= size / 2)
-	{
-		while (pos--)
-			exec_ra(a, bench);
-	}
-	else
-	{
-		pos = size - pos;
-		while (pos--)
-			exec_rra(a, bench);
-	}
-}
-
-static void	bring_to_top_b(t_node **b, int pos, t_bench *bench)
-{
-	int	size;
-
-	size = stack_size(*b);
-	if (pos <= size / 2)
-	{
-		while (pos--)
-			exec_rb(b, bench);
-	}
-	else
-	{
-		pos = size - pos;
-		while (pos--)
-			exec_rrb(b, bench);
-	}
 }
 
 void	chunk_sort(t_node **a, t_node **b, int range, t_bench *bench)

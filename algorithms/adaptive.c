@@ -12,34 +12,38 @@
 
 #include "push_swap.h"
 
-void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench)
+static void	select_strategy(t_node **a, t_node **b,
+			t_bench *bench, double disorder)
 {
-	double	disorder;
-	int		number;
+	int	number;
 
-	if (!a || !*a || is_sorted(*a))
-		return ;
 	number = stack_size(*a);
-	disorder = measure_disorder_process(*a);
-	bench->disorder_percent = (int)(disorder * 100);
 	if (disorder < 0.2)
 	{
-		bench->algorithm = "Insertion";
 		bench->big_o = "O(n^2)";
 		insertion_sort(a, b, bench);
 	}
 	else if (disorder < 0.5)
 	{
-		bench->algorithm = "Chunk";
 		bench->big_o = "O(n√n)";
 		chunk_sort(a, b, find_root(number), bench);
 	}
 	else
 	{
-		bench->algorithm = "Radix";
 		bench->big_o = "O(n*k)";
 		radix_sort(a, b, bench);
 	}
+}
+
+void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench)
+{
+	double	disorder;
+
+	if (!a || !*a || is_sorted(*a))
+		return ;
+	disorder = measure_disorder_process(*a);
+	bench->disorder_percent = (int)(disorder * 100);
+	select_strategy(a, b, bench, disorder);
 }
 
 static int	count_inversions(t_node *stack)

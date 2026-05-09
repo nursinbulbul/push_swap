@@ -6,79 +6,33 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 15:33:58 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:39:02 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/09 18:26:14 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_strcmp(const char *s1, const char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
 int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
-	int		flag_mode;
-	int		start_idx;
 	t_bench	bench;
+	t_ctx	c;
 
-	flag_mode = 0;
-	start_idx = 1;
-	init_bench(&bench);
 	a = NULL;
 	b = NULL;
+	init_bench(&bench);
 	if (argc < 2)
 		return (0);
-	while (start_idx < argc && argv[start_idx][0] == '-'
-		&& argv[start_idx][1] == '-')
-	{
-		if (!ft_strcmp(argv[start_idx], "--simple"))
-			flag_mode = 1;
-		else if (!ft_strcmp(argv[start_idx], "--medium"))
-			flag_mode = 2;
-		else if (!ft_strcmp(argv[start_idx], "--complex"))
-			flag_mode = 3;
-		else if (!ft_strcmp(argv[start_idx], "--bench"))
-			flag_mode = 3;
-		else if (!ft_strcmp(argv[start_idx], "--adaptive"))
-			flag_mode = 0;
-		else
-		{
-			write(2, "Error\n", 6);
-			return (1);
-		}
-		start_idx++;
-	}
-	if (start_idx == argc)
+	c.a = &a;
+	c.b = &b;
+	c.bench = &bench;
+	c.argc = argc;
+	c.argv = argv;
+	if (setup(&c))
 		return (1);
-	a = create_stack(argc - start_idx + 1, &argv[start_idx - 1]);
-	if (!a)
-		return (1);
-	assign_index(a);
-	if (is_sorted(a))
-	{
-		free_stack(&a);
-		return (0);
-	}
-	if (flag_mode == 1)
-		insertion_sort(&a, &b, &bench);
-	else if (flag_mode == 2)
-		chunk_sort(&a, &b, find_root(stack_size(a)), &bench);
-	else if (flag_mode == 3)
-		radix_sort(&a, &b, &bench);
-	else
-		adaptive_sort_process(&a, &b, &bench);
-	if (!ft_strcmp(argv[1], "--bench"))
-		print_bench(&bench);
-	free_stack(&a);
-	free_stack(&b);
+	if (!is_sorted(a))
+		run_algorithm(&a, &b, &bench, c.flag_mode);
+	cleanup(a, b, &bench, argv);
 	return (0);
 }

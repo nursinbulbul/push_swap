@@ -6,7 +6,7 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 15:34:11 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:38:57 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/09 17:02:04 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,73 +31,8 @@ void	init_bench(t_bench *bench)
 	bench->big_o = 0;
 }
 
-static int	num_len(int n)
+static void	print_strategy(t_bench *b)
 {
-	int	len;
-
-	len = 0;
-	if (n <= 0)
-		len++;
-	while (n)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-static void	putnbr(int n)
-{
-	char	buf[12];
-	int		i;
-	int		tmp;
-
-	tmp = n;
-	i = num_len(n);
-	buf[i] = '\0';
-	if (n == 0)
-	{
-		buf[0] = '0';
-		write(2, buf, 1);
-		return ;
-	}
-	if (n == -2147483648)
-	{
-		write(2, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(2, "-", 1);
-		n = -n;
-	}
-	while (n > 0)
-	{
-		buf[--i] = (n % 10) + '0';
-		n /= 10;
-	}
-	write(2, buf, num_len(tmp));
-}
-
-static void	putstr(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		write(2, &s[i], 1);
-		i++;
-	}
-}
-
-void	print_bench(t_bench *b)
-{
-	putstr("[bench] disorder: ");
-	putnbr(b->disorder_percent);
-	putstr(".00%\n");
 	putstr("[bench] strategy: ");
 	if (b->algorithm)
 		putstr(b->algorithm);
@@ -109,9 +44,10 @@ void	print_bench(t_bench *b)
 	else
 		putstr("Unknown");
 	write(2, "\n", 1);
-	putstr("[bench] total_ops: ");
-	putnbr(b->total_ops);
-	write(2, "\n", 1);
+}
+
+static void	print_push_swap_ops(t_bench *b)
+{
 	putstr("[bench] sa: ");
 	putnbr(b->sa);
 	putstr(" sb: ");
@@ -123,6 +59,10 @@ void	print_bench(t_bench *b)
 	putstr(" pb: ");
 	putnbr(b->pb);
 	write(2, "\n", 1);
+}
+
+static void	print_rotate_ops(t_bench *b)
+{
 	putstr("[bench] ra: ");
 	putnbr(b->ra);
 	putstr(" rb: ");
@@ -136,4 +76,17 @@ void	print_bench(t_bench *b)
 	putstr(" rrr: ");
 	putnbr(b->rrr);
 	write(2, "\n", 1);
+}
+
+void	print_bench(t_bench *b)
+{
+	putstr("[bench] disorder: ");
+	putnbr(b->disorder_percent);
+	putstr(".00%\n");
+	print_strategy(b);
+	putstr("[bench] total_ops: ");
+	putnbr(b->total_ops);
+	write(2, "\n", 1);
+	print_push_swap_ops(b);
+	print_rotate_ops(b);
 }

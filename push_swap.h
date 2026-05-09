@@ -26,28 +26,33 @@ typedef struct s_node
 
 typedef struct s_bench
 {
-	int	sa;
-	int	sb;
-	int	ss;
-
-	int	pa;
-	int	pb;
-
-	int	ra;
-	int	rb;
-	int	rr;
-
-	int	rra;
-	int	rrb;
-	int	rrr;
-
-	int	total_ops;
-
-	int	disorder_percent;
-
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	int		total_ops;
+	int		disorder_percent;
 	char	*algorithm;
 	char	*big_o;
 }	t_bench;
+
+typedef struct s_ctx
+{
+	t_node	**a;
+	t_node	**b;
+	t_bench	*bench;
+	int		flag_mode;
+	int		start_idx;
+	int		argc;
+	char	**argv;
+}	t_ctx;
 
 void	print_bench(t_bench *b);
 void	init_bench(t_bench *bench);
@@ -86,11 +91,18 @@ void	push_chunks_to_b(t_node **a, t_node **b, int range, t_bench *bench);
 void	push_back_to_a(t_node **a, t_node **b, t_bench *bench);
 int		get_bit(int index, int i);
 int		get_max_bits(t_node *a);
-void	process_bit(t_node **a, t_node **b, int size, int bit_index, t_bench *bench);
+void	process_bit(t_node **a, t_node **b, int bit_index, t_bench *bench);
 void	radix_sort(t_node **a, t_node **b, t_bench *bench);
 int		find_root(int total_len);
 void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench);
 double	measure_disorder_process(t_node *stack);
 int		is_sorted(t_node *stack);
 int		get_min_index(t_node *a);
+void	bring_to_top_a(t_node **a, int pos, t_bench *bench);
+void	bring_to_top_b(t_node **b, int pos, t_bench *bench);
+void	putnbr(int n);
+void	putstr(char *s);
+void	run_algorithm(t_node **a, t_node **b, t_bench *bench, int flag_mode);
+int		setup(t_ctx *c);
+void	cleanup(t_node *a, t_node *b, t_bench *bench, char **argv);
 #endif
