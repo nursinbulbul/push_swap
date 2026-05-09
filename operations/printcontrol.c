@@ -1,4 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printcontrol.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
+/*   Created: 2026/05/09 15:26:32 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:26:32 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
 
 void	exec_sa(t_node **a, t_bench *bench)
 {
@@ -16,7 +32,6 @@ void	exec_sb(t_node **b, t_bench *bench)
 	bench->total_ops++;
 }
 
-
 void	exec_ra(t_node **a, t_bench *bench)
 {
 	ra(a);
@@ -32,7 +47,6 @@ void	exec_rb(t_node **b, t_bench *bench)
 	bench->rb++;
 	bench->total_ops++;
 }
-
 
 void	exec_rra(t_node **a, t_bench *bench)
 {
@@ -50,18 +64,18 @@ void	exec_rrb(t_node **b, t_bench *bench)
 	bench->total_ops++;
 }
 
-void exec_pa(t_node **a, t_node **b, t_bench *bench)
+void	exec_pa(t_node **a, t_node **b, t_bench *bench)
 {
-    pa(a, b);
-    write(1, "pa\n", 3);
+	pa(a, b);
+	write(1, "pa\n", 3);
 	bench->pa++;
 	bench->total_ops++;
 }
 
-void exec_pb(t_node **a, t_node **b, t_bench *bench)
+void	exec_pb(t_node **a, t_node **b, t_bench *bench)
 {
-    pb(a, b);
-    write(1, "pb\n", 3);
+	pb(a, b);
+	write(1, "pb\n", 3);
 	bench->pb++;
 	bench->total_ops++;
 }

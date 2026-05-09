@@ -1,35 +1,47 @@
-#include "../push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
+/*   Created: 2026/05/09 15:27:17 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:27:17 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/* a stackten b stacke taşır*/
-/* a: 3 2 1 b:empty  --->  a: 2 1  b:3*/
-/* a'nın head'i ni çıkar b'nin başına ekle*/
+#include "push_swap.h"
+
+
 void	pb(t_node **a, t_node **b)
 {
-	t_node	*temp;
+	t_node *temp;
 
-	if (!a || !*a)  /* a nın boş olmaması gerek*/
-		return;
+	if (!a || !*a)
+		return ;
 
-	temp = *a; /*taşıyacağımız node  a nın ilk elemanı*/
-	*a = (*a)->next;  /* a yı ilerlet*/
-	if (*a) /* a stack’inin yeni ilk elemanı varsa onun geri bağlantısını sıfırla */
+	temp = *a;
+	*a = (*a)->next;
+	if (*a)
 		(*a)->prev = NULL;
 
-	temp->next = *b; /*b ye ekle */
-	if (*b)   /* B stack’inin yeni head’inin prev pointer’ını güncelle*/
+	temp->next = *b;
+	if (*b)
 		(*b)->prev = temp;
 
 	temp->prev = NULL;
 	*b = temp;
-
 }
 
 void	pa(t_node **a, t_node **b)
 {
-	t_node	*temp;
+	t_node *temp;
 
 	if (!b || !*b)
-		return;
+		return ;
 
 	temp = *b;
 	*b = (*b)->next;
@@ -42,5 +54,4 @@ void	pa(t_node **a, t_node **b)
 
 	temp->prev = NULL;
 	*a = temp;
-
 }

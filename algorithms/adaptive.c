@@ -1,11 +1,25 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
+/*   Created: 2026/05/09 15:22:51 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:22:51 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
+
 void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench)
 {
-	double	disorder;
-	int		number;
+	double disorder;
+	int number;
 
 	if (!a || !*a || is_sorted(*a))
 		return ;
@@ -32,13 +46,11 @@ void	adaptive_sort_process(t_node **a, t_node **b, t_bench *bench)
 	}
 }
 
-
-
 static int	count_inversions(t_node *stack)
 {
-	int		inversions;
-	t_node	*i;
-	t_node	*j;
+	int inversions;
+	t_node *i;
+	t_node *j;
 
 	inversions = 0;
 	i = stack;
@@ -58,8 +70,8 @@ static int	count_inversions(t_node *stack)
 
 double	measure_disorder_process(t_node *stack)
 {
-	int	inversions;
-	int	number;
+	int inversions;
+	int number;
 
 	if (!stack)
 		return (0.0);

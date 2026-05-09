@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algortihm_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/09 15:30:14 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:38:46 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int is_sorted(t_node *stack)
+int	is_sorted(t_node *stack)
 {
-    if (!stack)
-        return (1);
-    while (stack->next)
-    {
-        if (stack->index > stack->next->index)
-            return (0);
-        stack = stack->next;
-    }
-    return (1);
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->index > stack->next->index)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
 
 int	find_root(int total_len)
 {
-	int	root;
+	int root;
 
 	if (total_len <= 0)
 		return (0);

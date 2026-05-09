@@ -1,47 +1,52 @@
-/*burda linked list yani stack imiz için yeni 
-bir node oluşturuyoruz.bir sayı alır onu linked list düğümüne çevirir*/
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   node_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
+/*   Created: 2026/05/09 15:30:56 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:30:56 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node *new_node(int value)
+
+t_node	*new_node(int value)
 {
-	t_node *node;    /*bu yeni node'u tutacak*/
+	t_node *node;
 
 	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
-	node->value = value;  /*node içine sayı koyuyoruz*/
-	node->index = -1; /*node indexi için bi başlangıç değeri vermemiz gerekiyor, henüz hesaplanmadığını belirtir*/
+	node->value = value;
+	node->index = -1;
 	node->next = NULL;
-	node->prev = NULL; /*node henüz zincire bağlı değil*/
-	return (node); /*oluşturulan nodeu geri verir*/
+	node->prev = NULL;
+	return (node);
 }
 
-
-/*kısacaaa bir integer'ı aldı ve onu linked list için
-yeni bir node haline getirir*/
-
-/*burda index değerinin atamasını yapıyoruz her bir node için*/
-/*0dan başlayarak küçükten büyüğe bir indexleme oluyor*/
-/*örneğin stack 2,3,1 ise indexleri sırasıyla 2->1, 3->2, 1->0 olur*/
-void assign_index(t_node *stack)
+void	assign_index(t_node *stack)
 {
 	t_node *i;
 	t_node *j;
 
 	if (!stack)
-		return;
+		return ;
 
-	i = stack; /*indexleme için kullanıcaz*/
+	i = stack;
 	while (i)
 	{
-		int rank = 0;  /*her seferinde sıfırlıyorum çünkü iç döngüde rank için arttırma yapması lazım 0dan*/
-		j = stack; /*kontrol ederken gezmek için kullanıcaz*/
+		int rank = 0;
+		j = stack;
 
 		while (j)
 		{
-			if (j->value < i->value) 
+			if (j->value < i->value)
 				rank++;
 			j = j->next;
 		}
@@ -51,8 +56,7 @@ void assign_index(t_node *stack)
 	}
 }
 
-/*bu yardımcı fonksiyon en büyük indexi bulur ve onun stack içindeki pozisyonunu döner*/
-int find_max_index_position(t_node *b)
+int	find_max_index_position(t_node *b)
 {
 	int max;
 	int pos;
@@ -78,13 +82,11 @@ int find_max_index_position(t_node *b)
 	return (max_pos);
 }
 
-/*nodeların hepsini gezip minimum değerin bulunduğu nodeu bulur*/
-
 int	get_min_index(t_node *a)
 {
-	int	min;
-	int	index;
-	int	i;
+	int min;
+	int index;
+	int i;
 
 	if (!a)
 		return (0);

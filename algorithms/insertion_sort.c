@@ -1,9 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   insertion_sort.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/09 15:24:31 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:38:26 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-
-
-
-/*min değeri olan nodeu en başa alır*/
 
 void	move_min_to_top(t_node **a, t_bench *bench)
 {
@@ -13,20 +20,17 @@ void	move_min_to_top(t_node **a, t_bench *bench)
 
 	min_index = get_min_index(*a);
 	size = stack_size(*a);
-
-    /*min index stackte üst yarıdaysa*/
 	if (min_index <= size / 2)
 	{
 		while (min_index > 0)
 		{
-			exec_ra(a, bench); /*yazdırabilmek için exec kullandık*/
+			exec_ra(a, bench);
 			min_index--;
 		}
 	}
-    /*min index alt yarıdaysa*/
 	else
 	{
-		moves = size - min_index; /*reverse rotate işleminin kaç defa tekrarlanacağını hesaplar*/
+		moves = size - min_index;
 		while (moves > 0)
 		{
 			exec_rra(a, bench);
@@ -41,20 +45,17 @@ void	insertion_sort(t_node **a, t_node **b, t_bench *bench)
 	int	i;
 
 	if (!a || !*a)
-		return;
-
+		return ;
 	size = stack_size(*a);
 	i = 0;
-    /*bu döngüde a stackte min değeri bulup her seferinde b'ye aktarıyor*/
 	while (i < size)
 	{
 		move_min_to_top(a, bench);
-		exec_pb(a, b,bench);
+		exec_pb(a, b, bench);
 		i++;
 	}
-    /*b stackte artık büyük değer en üstte azalarak gidiyor burdan a'ya aktarma yapıyoruz küçükten büyüğe sıralama olması için*/
 	while (*b)
 	{
-		exec_pa(a, b,bench);
+		exec_pa(a, b, bench);
 	}
 }

@@ -1,38 +1,50 @@
-/* rotate ilk eleman sona gider diğerleri bir sola kayar*/
-/* a: 1 2 3 4   ra sonrası  a: 2 3 4 1*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
+/*   Created: 2026/05/09 15:29:05 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:29:05 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
+
 
 void	ra(t_node **a)
 {
-	t_node	*first;
-	t_node	*last;
+	t_node *first;
+	t_node *last;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 
-	first = *a;  /* first alınır*/
-	*a = first->next;  /* head ilerletilir*/
+	first = *a;
+	*a = first->next;
 
-	first->next = NULL;  /* first koparılır*/
+	first->next = NULL;
 	first->prev = NULL;
 
-	last = *a;  /* sona gidilir*/
+	last = *a;
 	while (last->next)
 		last = last->next;
 
-	last->next = first; /*sona eklenir */
+	last->next = first;
 	first->prev = last;
-
 }
 
 void	rb(t_node **b)
 {
-	t_node	*first;
-	t_node	*last;
+	t_node *first;
+	t_node *last;
 
 	if (!b || !*b || !(*b)->next)
-		return;
+		return ;
 
 	first = *b;
 	*b = first->next;
@@ -46,7 +58,6 @@ void	rb(t_node **b)
 
 	last->next = first;
 	first->prev = last;
-
 }
 
 void	rr(t_node **a, t_node **b)

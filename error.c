@@ -1,14 +1,23 @@
-/* bu fonksiyon programda hata olunca 
-programı durdurur ve error yazdırır */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
+/*   Created: 2026/05/09 15:33:15 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:33:15 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error_exit(void)
+
+void	error_exit(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
 }
-
-/*2 stderr hata ekranı*/
-/* exit 1 programı direkt kapatır 
-acaba bunu kullanabiliyor muyuz?? */

@@ -1,20 +1,28 @@
-/* reverse rotate stack'i ters yönde döndürme */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
+/*   Created: 2026/05/09 15:28:18 by nbulbul           #+#    #+#             */
+/*   Updated: 2026/05/09 15:28:18 by nbulbul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/* 1 2 3 4 -->  4 1 2 3 */
+#include "push_swap.h"
 
-/* rra adımlar: 1 sona git 2 son node'u al*/
-/* 3- onu kopar   4- başa koy*/
-
-
-#include "../push_swap.h"
 
 void	rra(t_node **a)
 {
-	t_node	*last;
-	t_node	*second_last;
+	t_node *last;
+	t_node *second_last;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 
 	last = *a;
 	while (last->next)
@@ -26,20 +34,20 @@ void	rra(t_node **a)
 		second_last->next = NULL;
 
 	last->next = *a;
-    (*a)->prev = last;
+	(*a)->prev = last;
 
 	last->prev = NULL;
-	
+
 	*a = last;
 }
 
 void	rrb(t_node **b)
 {
-	t_node	*last;
-	t_node	*second_last;
+	t_node *last;
+	t_node *second_last;
 
 	if (!b || !*b || !(*b)->next)
-		return;
+		return ;
 
 	last = *b;
 	while (last->next)
@@ -51,15 +59,13 @@ void	rrb(t_node **b)
 		second_last->next = NULL;
 
 	last->next = *b;
-    (*b)->prev = last;
+	(*b)->prev = last;
 
-    last->prev = NULL;
+	last->prev = NULL;
 
 	*b = last;
 }
 
-/* örnek : a:  1 2 3 4   b: 5 6 7 */
-/*  sonuc: 4 1 2 3  b: 7 5 6  */
 void	rrr(t_node **a, t_node **b)
 {
 	rra(a);
