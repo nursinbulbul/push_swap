@@ -78,7 +78,7 @@ void push_chunks_to_b(t_node **a, t_node **b, int range, t_bench *bench)
 		else
 		{
 			bring_to_top_a(a, pos, bench);
-			pb(a, b);
+			exec_pb(a, b,bench);
 		}
 	}
 }
@@ -92,6 +92,6 @@ void push_back_to_a(t_node **a, t_node **b, t_bench *bench)
 	{
 		max_pos = find_max_index_position(*b);
 		bring_to_top_b(b, max_pos, bench);
-		pa(a, b);
+		exec_pa(a, b,bench);
 	}
 }

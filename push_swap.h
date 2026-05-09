@@ -19,15 +19,24 @@ typedef struct s_bench
 	int		sa;
 	int		sb;
 	int		ss;
+
 	int		pa;
 	int		pb;
+
 	int		ra;
 	int		rb;
 	int		rr;
+
 	int		rra;
 	int		rrb;
 	int		rrr;
+
 	int		total_ops;
+
+	int		disorder_percent;
+
+	char	*algorithm;
+	char	*big_o;
 }	t_bench;
 
 void print_bench(t_bench *b);

@@ -43,11 +43,11 @@ void	process_bit(t_node **a, t_node **b, int size, int bit_index, t_bench *bench
 		if (get_bit((*a)->index, bit_index) == 1)
 			exec_ra(a, bench);
 		else
-			pb(a, b);
+			exec_pb(a, b,bench);
 		j++;
 	}
 	while (*b)
-		pa(a, b);
+		exec_pa(a, b,bench);
 }
 
 void	radix_sort(t_node **a, t_node **b, t_bench *bench)

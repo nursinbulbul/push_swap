@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <unistd.h>
 
 void	init_bench(t_bench *bench)
 {
@@ -14,12 +15,17 @@ void	init_bench(t_bench *bench)
 	bench->rrb = 0;
 	bench->rrr = 0;
 	bench->total_ops = 0;
+
+	bench->disorder_percent = 0;
+	bench->algorithm = 0;
+	bench->big_o = 0;
 }
 
-static int  num_len(int n)
+static int	num_len(int n)
 {
-	int len = 0;
+	int	len;
 
+	len = 0;
 	if (n <= 0)
 		len++;
 	while (n)
@@ -29,11 +35,14 @@ static int  num_len(int n)
 	}
 	return (len);
 }
+
 static void	putnbr(int n)
 {
 	char	buf[12];
 	int		i;
+	int		tmp;
 
+	tmp = n;
 	i = num_len(n);
 	buf[i] = '\0';
 
@@ -59,21 +68,46 @@ static void	putnbr(int n)
 		buf[--i] = (n % 10) + '0';
 		n /= 10;
 	}
-	write(2, buf, num_len(n == 0 ? 0 : n));
+
+	write(2, buf, num_len(tmp));
 }
 
 static void	putstr(char *s)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
 		write(2, &s[i], 1);
 		i++;
 	}
 }
-void print_bench(t_bench *b)
+
+void	print_bench(t_bench *b)
 {
+	putstr("[bench] disorder: ");
+	putnbr(b->disorder_percent);
+	putstr(".00%\n");
+
+	putstr("[bench] strategy: ");
+
+	if (b->algorithm)
+		putstr(b->algorithm);
+	else
+		putstr("Unknown");
+
+	putstr(" / ");
+
+	if (b->big_o)
+		putstr(b->big_o);
+	else
+		putstr("Unknown");
+
+	write(2, "\n", 1);
+
 	putstr("[bench] total_ops: ");
 	putnbr(b->total_ops);
 	write(2, "\n", 1);
@@ -84,9 +118,7 @@ void print_bench(t_bench *b)
 	putnbr(b->sb);
 	putstr(" ss: ");
 	putnbr(b->ss);
-	write(2, "\n", 1);
-
-	putstr("[bench] pa: ");
+	putstr(" pa: ");
 	putnbr(b->pa);
 	putstr(" pb: ");
 	putnbr(b->pb);
@@ -98,9 +130,7 @@ void print_bench(t_bench *b)
 	putnbr(b->rb);
 	putstr(" rr: ");
 	putnbr(b->rr);
-	write(2, "\n", 1);
-
-	putstr("[bench] rra: ");
+	putstr(" rra: ");
 	putnbr(b->rra);
 	putstr(" rrb: ");
 	putnbr(b->rrb);

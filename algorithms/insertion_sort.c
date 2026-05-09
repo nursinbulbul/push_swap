@@ -49,12 +49,12 @@ void	insertion_sort(t_node **a, t_node **b, t_bench *bench)
 	while (i < size)
 	{
 		move_min_to_top(a, bench);
-		pb(a, b);
+		exec_pb(a, b,bench);
 		i++;
 	}
     /*b stackte artık büyük değer en üstte azalarak gidiyor burdan a'ya aktarma yapıyoruz küçükten büyüğe sıralama olması için*/
 	while (*b)
 	{
-		pa(a, b);
+		exec_pa(a, b,bench);
 	}
 }
