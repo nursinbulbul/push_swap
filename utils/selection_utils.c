@@ -6,7 +6,7 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 19:29:10 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 19:51:51 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/10 11:20:42 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,28 @@ static int	handle_small_sizes(t_node **a, t_node **b, t_bench *bench)
 	size = stack_size(*a);
 	if (size == 2)
 	{
-		bench->algorithm = "Small Sort";
+		bench->algorithm = "Adaptive";
 		bench->big_o = "O(1)";
 		sort_two(a, bench);
 		return (1);
 	}
 	if (size == 3)
 	{
-		bench->algorithm = "Small Sort";
+		bench->algorithm = "Adaptive";
 		bench->big_o = "O(1)";
 		sort_three(a, bench);
 		return (1);
 	}
 	if (size <= 5)
 	{
-		bench->algorithm = "Small Sort";
+		bench->algorithm = "Adaptive";
 		bench->big_o = "O(1)";
 		sort_five(a, b, bench);
 		return (1);
 	}
 	return (0);
 }
+
 static void	run_big_algorithms(t_node **a, t_node **b, t_bench *bench,
 		int flag_mode)
 {
@@ -67,9 +68,10 @@ static void	run_big_algorithms(t_node **a, t_node **b, t_bench *bench,
 		adaptive_sort_process(a, b, bench);
 	}
 }
+
 void	run_algorithm(t_node **a, t_node **b, t_bench *bench, int flag_mode)
 {
-	bench->disorder_percent = measure_disorder_process(*a);
+	bench->disorder_percent = (int)(measure_disorder_process(*a) * 100);
 	if (handle_small_sizes(a, b, bench))
 		return ;
 	run_big_algorithms(a, b, bench, flag_mode);
