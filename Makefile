@@ -3,7 +3,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I.
 
-SRCS =	algorithms/insertion_sort.c \
+SRCS =	algorithms/selection_sort.c \
 		algorithms/chunk_based_sort.c \
 		algorithms/radix_sort.c \
 		algorithms/adaptive.c \

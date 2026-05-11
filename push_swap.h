@@ -85,7 +85,7 @@ void	exec_rrb(t_node **b, t_bench *bench);
 void	exec_pa(t_node **a, t_node **b, t_bench *bench);
 void	exec_pb(t_node **a, t_node **b, t_bench *bench);
 void	free_stack(t_node **a);
-void	insertion_sort(t_node **a, t_node **b, t_bench *bench);
+void	selection_sort(t_node **a, t_node **b, t_bench *bench);
 void	chunk_sort(t_node **a, t_node **b, int range, t_bench *bench);
 void	push_chunks_to_b(t_node **a, t_node **b, int range, t_bench *bench);
 void	push_back_to_a(t_node **a, t_node **b, t_bench *bench);

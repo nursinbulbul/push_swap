@@ -6,7 +6,7 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 19:29:10 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/10 11:20:42 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/11 15:37:52 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ static void	run_big_algorithms(t_node **a, t_node **b, t_bench *bench,
 {
 	if (flag_mode == 1)
 	{
-		bench->algorithm = "Insertion";
+		bench->algorithm = "Selection";
 		bench->big_o = "O(n²)";
-		insertion_sort(a, b, bench);
+		selection_sort(a, b, bench);
 	}
 	else if (flag_mode == 2)
 	{

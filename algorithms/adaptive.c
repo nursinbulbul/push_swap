@@ -21,7 +21,7 @@ static void	select_strategy(t_node **a, t_node **b,
 	if (disorder < 0.2)
 	{
 		bench->big_o = "O(n^2)";
-		insertion_sort(a, b, bench);
+		selection_sort(a, b, bench);
 	}
 	else if (disorder < 0.5)
 	{

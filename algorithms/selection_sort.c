@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insertion_sort.c                                   :+:      :+:    :+:   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 15:24:31 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/09 15:38:26 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/11 15:35:50 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	move_min_to_top(t_node **a, t_bench *bench)
 	}
 }
 
-void	insertion_sort(t_node **a, t_node **b, t_bench *bench)
+void	selection_sort(t_node **a, t_node **b, t_bench *bench)
 {
 	int	size;
 	int	i;
