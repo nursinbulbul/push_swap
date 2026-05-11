@@ -20,7 +20,7 @@ static void	select_strategy(t_node **a, t_node **b,
 	number = stack_size(*a);
 	if (disorder < 0.2)
 	{
-		bench->big_o = "O(n2)";
+		bench->big_o = "O(n²)";
 		selection_sort(a, b, bench);
 	}
 	else if (disorder < 0.5)
