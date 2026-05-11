@@ -6,7 +6,7 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 19:29:10 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/11 15:37:52 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/11 16:03:10 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ static void	run_big_algorithms(t_node **a, t_node **b, t_bench *bench,
 	else if (flag_mode == 2)
 	{
 		bench->algorithm = "Chunk";
-		bench->big_o = "O(n log n)";
+		bench->big_o = "O(n√n)";
 		chunk_sort(a, b, find_root(stack_size(*a)), bench);
 	}
 	else if (flag_mode == 3)
 	{
 		bench->algorithm = "Radix";
-		bench->big_o = "O(n*k)";
+		bench->big_o = "O(n log n)";
 		radix_sort(a, b, bench);
 	}
 	else

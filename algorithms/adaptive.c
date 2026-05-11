@@ -20,7 +20,7 @@ static void	select_strategy(t_node **a, t_node **b,
 	number = stack_size(*a);
 	if (disorder < 0.2)
 	{
-		bench->big_o = "O(n^2)";
+		bench->big_o = "O(n2)";
 		selection_sort(a, b, bench);
 	}
 	else if (disorder < 0.5)
@@ -30,7 +30,7 @@ static void	select_strategy(t_node **a, t_node **b,
 	}
 	else
 	{
-		bench->big_o = "O(n*k)";
+		bench->big_o = "O(n log n)";
 		radix_sort(a, b, bench);
 	}
 }
