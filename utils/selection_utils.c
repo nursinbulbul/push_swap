@@ -6,7 +6,7 @@
 /*   By: nbulbul <nbulbul@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 19:29:10 by nbulbul           #+#    #+#             */
-/*   Updated: 2026/05/11 16:03:10 by nbulbul          ###   ########.fr       */
+/*   Updated: 2026/05/11 16:27:48 by nbulbul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	run_big_algorithms(t_node **a, t_node **b, t_bench *bench,
 void	run_algorithm(t_node **a, t_node **b, t_bench *bench, int flag_mode)
 {
 	bench->disorder_percent = (int)(measure_disorder_process(*a) * 100);
-	if (handle_small_sizes(a, b, bench))
+	if (flag_mode == 0 && handle_small_sizes(a, b, bench))
 		return ;
 	run_big_algorithms(a, b, bench, flag_mode);
 }
