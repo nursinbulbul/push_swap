@@ -2,7 +2,7 @@
 
 ## 📋 Description
 
-**Push_swap**, verilen bir tam sayı yığınını (stack), kısıtlı bir komut seti kullanarak ve mümkün olan en az hamleyle sıralamayı amaçlayan bir algoritma projesidir. Proje, algoritma karmaşıklığı ($O(n^{2})$, $O(n\sqrt{n})$, $O(n \log n)$) ve veri yapısı yönetimi üzerine odaklanır. Program, yığını sıralamak için gereken operasyon dizisini standart çıktıya basar.
+**Push_swap**, verilen bir tam sayı yığınını (stack), kısıtlı bir komut seti kullanarak ve mümkün olan en az hamleyle sıralamayı amaçlayan bir algoritma projesidir. Proje, algoritma karmaşıklığı ( $O(n^{2})$, $O(n\sqrt{n})$, $O(n \log n)$ ) ve veri yapısı yönetimi üzerine odaklanır. Program, yığını sıralamak için gereken operasyon dizisini standart çıktıya basar.
 
 ## 🛠️ Instructions
 
